@@ -1,0 +1,80 @@
+###
+POST http://127.0.0.1:8000/accounts/register/ 
+Content-Type: application/json
+
+{
+    "username":"react",
+    "email":"react@gmail.com",
+    "password":"password@123",
+    "phone":1234567890
+}
+
+#api call for fetching token 
+###
+POST http://127.0.0.1:8000/accounts/token/
+Content-Type: application/json
+
+{
+    "username":"react@gmail.com",
+    "password":"password@123"
+    
+}
+
+#api call for getting current user detail
+
+###
+GET http://127.0.0.1:8000/accounts/me/
+Accept: application/json
+Authorization: Token 1c41951248a2adae5268e31d656d1151409fd476
+
+#==========Expense=========
+#api call for current user expenses
+###
+GET http://127.0.0.1:8000/expense/?page=4
+Accept: application/json
+Authorization: Token a0c72fa8d91a358f95c27cbc3dd6cd8e114e94f3
+
+# api call for add expense
+###
+POST http://127.0.0.1:8000/expense/
+Content-Type: application/json
+Authorization: Token a0c72fa8d91a358f95c27cbc3dd6cd8e114e94f3
+
+{
+    "title":"homeneeds",
+    "amount":5500,
+    "category":"Groceries"
+    
+}
+
+# api call for fetching detail
+###
+GET http://127.0.0.1:8000/expense/2/
+Accept: application/json
+Authorization: Token a0c72fa8d91a358f95c27cbc3dd6cd8e114e94f3
+
+
+#update expense
+###
+PUT http://127.0.0.1:8000/expense/1/
+Content-Type: application/json
+Authorization: Token 1c41951248a2adae5268e31d656d1151409fd476
+
+{
+    "title":"dinner",
+    "amount":100,
+    "category":"Food"
+}
+
+# expense delete 
+
+###
+DELETE http://127.0.0.1:8000/expense/1/
+Authorization: Token 1c41951248a2adae5268e31d656d1151409fd476
+
+# summary of api call
+###
+GET http://127.0.0.1:8000/expense/summary/
+Accept: application/json
+Authorization: Token a0c72fa8d91a358f95c27cbc3dd6cd8e114e94f3
+
